@@ -55,16 +55,4 @@ export async function getServerSideProps() {
             results,
         },
     }
-
-    // useEffect(() => {
-    //     (async () => {
-    //         const { results } = await (
-    //             await fetch(
-    //                 `/api/movies`
-    //             )
-    //         ).json();
-    //         setMovies(results);
-    //     })();
-    // }, []);
-
 }
