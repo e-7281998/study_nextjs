@@ -5,6 +5,10 @@ import { useRouter } from "next/router";
 
 export default function Detail() {
     const router = useRouter();
-    console.log(router);
-    return "detail";
+
+    //영화 상세 페이지에 다이렉트로 접속할 때만 Loading... 이 표시됨.
+    //다이렉트로 들어오면 routere.query.title의 정보가 존재하지 않으므로
+    return <div>
+        <h4>{router.query.title || "Loading..."}</h4>
+    </div>;
 }
