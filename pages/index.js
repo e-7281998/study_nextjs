@@ -7,14 +7,7 @@ export default function Home({ results }) {
     const router = useRouter();
     const onClick = (id, title) => {
         //네비게이팅 방법 1.폼 같은 것 제출 후 자동으로 네비게이팅
-        router.push({
-            pathname: `/movies/${id}`,
-            query: {
-                title: title,
-            }
-        },
-            `/movies/${id}` //url 정보 숨겨줌. 현재는 query숨져짐
-        );
+        router.push(`/movies/${title}/${id}`);
     }
 
     return (
@@ -26,13 +19,8 @@ export default function Home({ results }) {
                     <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
                     <h4>
                         {/* 네비게이팅 방법 2.Link 사용 */}
-                        <Link href={{
-                            pathname: `/movies/${movie.id}`,
-                            query: {
-                                title: movie.original_title,
-                            },
-                        }}
-                            as={`/movies/${movie.id}`}
+                        <Link
+                            href={`/movies/${movie.original_title}/${movie.id}`}
                             key={movie.id}>
                             {movie.original_title}
                         </Link>
